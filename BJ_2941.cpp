@@ -13,7 +13,7 @@ int main()
   {
     for(int j=0; j<8; j++)
     {
-      if(s.find(cr[j], i))
+      if(string::npos!=s.find(cr[j], i))
       {
         i++;
         if(cr[j]=="dz=")
