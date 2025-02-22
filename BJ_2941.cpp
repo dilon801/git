@@ -1,29 +1,25 @@
+//백준 2941번 크로아티아 알파벳
+
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-  int c=0;
   string s;
-  string cr[8] = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
   cin >> s;
+  int c=s.size();
   
-  for(int i=0; i<s.size(); i++)
+  for(int i=s.size(); i>0; i--)
   {
-    for(int j=0; j<8; j++)
+    if(s[i]=='-'||(s[i]=='j'&&(s[i-1]=='n'||s[i-1]=='l'))||s[i]=='=')
     {
-      if(string::npos!=s.find(cr[j], i))
+      if(s[i]=='='&&s[i-1]=='z'&&s[i-2]=='d')
       {
-        i++;
-        if(cr[j]=="dz=")
-        {
-          i++;
-        }
-        break;
+        c--;
       }
+      c--;
     }
-    c++;
   }
 
   cout << c << endl;
